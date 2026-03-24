@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Test examples</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Test examples</h1>
+
+
+
+<p>This vignette provides examples of some of the hypothesis tests that
+can be specified in <code>simr</code>. The function <code>doTest</code>
+can be used to apply a test to an input model, which lets you check that
+the test works before running a power simulation.</p>
+<p>Documentation for the test specification functions can be found in
+the help system at <code>?tests</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(simr)</span></code></pre></div>
+<div id="binomial-glmm-with-a-categorical-predictor" class="section level2">
+<h2>Binomial GLMM with a categorical predictor</h2>
+<p>The first example comes from the help page for <code>glmer</code>.
+The data frame <code>cbpp</code> contains data on contagious bovine
+pleuropneumonia. An observation variable is added to allow for
+overdispersion. Note that the response is specified using
+<code>cbind</code> — <code>simr</code> expects a binomial model to be in
+this form.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>cbpp<span class="sc">$</span>obs <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(cbpp)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>gm1 <span class="ot">&lt;-</span> <span class="fu">glmer</span>(<span class="fu">cbind</span>(incidence, size <span class="sc">-</span> incidence) <span class="sc">~</span> period <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> herd) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>obs), <span class="at">data=</span>cbpp,</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>    <span class="at">family=</span>binomial)</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="fu">summary</span>(gm1)<span class="sc">$</span>coef</span></code></pre></div>
+<pre><code>##              Estimate Std. Error   z value     Pr(&gt;|z|)
+## (Intercept) -1.500290  0.2967072 -5.056466 4.270973e-07
+## period2     -1.226498  0.4802935 -2.553643 1.066024e-02
+## period3     -1.328831  0.4938981 -2.690497 7.134561e-03
+## period4     -1.866248  0.5935800 -3.144055 1.666244e-03</code></pre>
+<p>Note that <code>period</code> is a categorical variable with 4
+levels, which enters the model as 3 dummy variables. To test all 3 dummy
+variables simultaneously, you can use a likelihood ratio test.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">doTest</span>(gm1, <span class="fu">fixed</span>(<span class="st">&quot;period&quot;</span>, <span class="st">&quot;lr&quot;</span>))</span></code></pre></div>
+<pre><code>## boundary (singular) fit: see help(&#39;isSingular&#39;)</code></pre>
+<pre><code>## p-value for predictor &#39;period&#39;: 0.003150249
+##           --------------------
+## Test: Likelihood ratio</code></pre>
+<p>If you were (for some reason) especially interested in the
+significance for the dummy variable <code>period2</code> you could use a
+z-test. This test uses the value <code>Pr(&gt;|z|)</code> reported in
+the summary above.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">doTest</span>(gm1, <span class="fu">fixed</span>(<span class="st">&quot;period2&quot;</span>, <span class="st">&quot;z&quot;</span>))</span></code></pre></div>
+<pre><code>## p-value for predictor &#39;period2&#39;: 0.01066024
+##           --------------------
+## Test: z-test
+##       Effect size for period2 is -1.2</code></pre>
+<p>Suppose your model also has a continuous predictor. You can use
+<code>fixed</code> to choose which fixed effect to apply tests to.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>gm2 <span class="ot">&lt;-</span> <span class="fu">glmer</span>(<span class="fu">cbind</span>(incidence, size <span class="sc">-</span> incidence) <span class="sc">~</span> period <span class="sc">+</span> size <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> herd), <span class="at">data=</span>cbpp,</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>    <span class="at">family=</span>binomial)</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="fu">doTest</span>(gm2, <span class="fu">fixed</span>(<span class="st">&quot;size&quot;</span>, <span class="st">&quot;z&quot;</span>))</span></code></pre></div>
+<pre><code>## p-value for predictor &#39;size&#39;: 0.8633871
+##           --------------------
+## Test: z-test
+##       Effect size for size is 0.0045</code></pre>
+<p>Once you have chosen your tests, you can run a power analysis by
+replacing <code>doTest</code> with <code>powerSim</code>. Don’t forget
+to specify an appropriate effect size.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">fixef</span>(gm2)[<span class="st">&quot;size&quot;</span>] <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">powerSim</span>(gm2, <span class="fu">fixed</span>(<span class="st">&quot;size&quot;</span>, <span class="st">&quot;z&quot;</span>), <span class="at">nsim=</span><span class="dv">50</span>)</span></code></pre></div>
+<pre><code>## Power for predictor &#39;size&#39;, (95% confidence interval):
+##       64.00% (49.19, 77.08)
+## 
+## Test: z-test
+##       Effect size for size is 0.050
+## 
+## Based on 50 simulations, (0 errors, 0 warnings, 1 message)
+## 
+## Time elapsed: 0 h 0 m 5 s</code></pre>
+</div>
+<div id="models-with-interaction-or-quadratic-terms" class="section level2">
+<h2>Models with interaction or quadratic terms</h2>
+<p>As your models become more complex, it can be easier to explicitly
+specify your null hypothesis using the <code>compare</code>
+functions.</p>
+<div id="cake" class="section level3">
+<h3>Cake</h3>
+<p>This example uses the <code>cake</code> dataset.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>fm1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(angle <span class="sc">~</span> recipe <span class="sc">*</span> temp <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>recipe<span class="sc">:</span>replicate), <span class="at">data=</span>cake, <span class="at">REML=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<p>Main effects should not be tested when they appear in an interaction
+term. Using the <code>fcompare</code> function, we can specify a
+comparison with a simpler model (without having to re-type the random
+effects specification).</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">doTest</span>(fm1, <span class="fu">fcompare</span>(<span class="sc">~</span> recipe <span class="sc">+</span> temp))</span></code></pre></div>
+<pre><code>## Warning: the &#39;nobars&#39; function has moved to the reformulas package. Please update your imports, or ask an upstream package maintainer to do so.
+## This warning is displayed once per session.</code></pre>
+<pre><code>## p-value for model comparison: 0.9586321
+##           --------------------
+## Test: Likelihood ratio
+##       Comparison to ~recipe + temp + [re]</code></pre>
+<p>This also works for polynomial terms:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>fm2 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(angle <span class="sc">~</span> recipe <span class="sc">+</span> <span class="fu">poly</span>(temp, <span class="dv">2</span>) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>recipe<span class="sc">:</span>replicate), <span class="at">data=</span>cake, <span class="at">REML=</span><span class="cn">FALSE</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a><span class="fu">summary</span>(fm2)<span class="sc">$</span>coef</span></code></pre></div>
+<pre><code>##                 Estimate Std. Error    t value
+## (Intercept)    33.122222   1.677940 19.7398074
+## recipeB        -1.477778   2.372966 -0.6227555
+## recipeC        -1.522222   2.372966 -0.6414850
+## poly(temp, 2)1 44.347549   4.537142  9.7743351
+## poly(temp, 2)2 -2.586135   4.537142 -0.5699921</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">doTest</span>(fm2, <span class="fu">fcompare</span>(<span class="sc">~</span> recipe <span class="sc">+</span> temp))</span></code></pre></div>
+<pre><code>## p-value for model comparison: 0.5688225
+##           --------------------
+## Test: Likelihood ratio
+##       Comparison to ~recipe + temp + [re]</code></pre>
+</div>
+<div id="budworms" class="section level3">
+<h3>Budworms</h3>
+<p>We can do similar things with the <code>budworm</code> data in the
+<code>pbkrtest</code> package.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">data</span>(budworm, <span class="at">package=</span><span class="st">&quot;pbkrtest&quot;</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>bw1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="fu">cbind</span>(ndead, ntotal<span class="sc">-</span>ndead) <span class="sc">~</span> dose<span class="sc">*</span>sex, <span class="at">family=</span><span class="st">&quot;binomial&quot;</span>, <span class="at">data=</span>budworm)</span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="fu">summary</span>(bw1)<span class="sc">$</span>coef</span></code></pre></div>
+<pre><code>##                Estimate Std. Error    z value     Pr(&gt;|z|)
+## (Intercept)  -1.7157796 0.32233098 -5.3230368 1.020491e-07
+## dose          0.1156765 0.02378865  4.8626745 1.158102e-06
+## sexmale      -0.2119351 0.51523286 -0.4113384 6.808244e-01
+## dose:sexmale  0.1815579 0.06691613  2.7132151 6.663383e-03</code></pre>
+<p>Of course we don’t want to retype the <code>cbind</code>
+boilerplate:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="fu">doTest</span>(bw1, <span class="fu">compare</span>(. <span class="sc">~</span> dose <span class="sc">+</span> sex))</span></code></pre></div>
+<pre><code>## p-value for model comparison: 0.001741539
+##           --------------------
+## Test: Likelihood ratio
+##       Comparison to . ~ dose + sex</code></pre>
+<p>Since <code>dose</code> is continous and <code>sex</code> is binary
+we could also use a Z-test on the single interaction term.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="fu">doTest</span>(bw1, <span class="fu">fixed</span>(<span class="st">&quot;dose:sexmale&quot;</span>, <span class="st">&quot;z&quot;</span>))</span></code></pre></div>
+<pre><code>## p-value for predictor &#39;dose:sexmale&#39;: 0.006663383
+##           --------------------
+## Test: z-test</code></pre>
+</div>
+</div>
+<div id="single-random-effects" class="section level2">
+<h2>Single random effects</h2>
+<p>The <code>random</code> function gives you access to tests from the
+<code>RLRsim</code> package. No additional arguments are needed for a
+single random effect.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a>re1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Yield <span class="sc">~</span> <span class="dv">1</span><span class="sc">|</span>Batch, <span class="at">data=</span>Dyestuff)</span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a><span class="fu">doTest</span>(re1, <span class="fu">random</span>())</span></code></pre></div>
+<pre><code>## p-value for a single random effect: 0.0045
+##           --------------------
+## Test: Exact restricted LRT (package RLRsim)</code></pre>
+</div>
+<div id="multiple-random-effects" class="section level2">
+<h2>Multiple random effects</h2>
+<p>Where the model has multiple random effects, <code>compare</code> can
+be used to test alternative specifications.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a>fm1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Reaction <span class="sc">~</span> Days <span class="sc">+</span> (Days <span class="sc">|</span> Subject), <span class="at">data=</span>sleepstudy)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="fu">doTest</span>(fm1, <span class="fu">compare</span>( <span class="sc">~</span> Days <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject)))</span></code></pre></div>
+<pre><code>## p-value for model comparison: 7.072413e-10
+##           --------------------
+## Test: Likelihood ratio
+##       Comparison to ~Days + (1 | Subject)</code></pre>
+<p>The LRT is fast but only approximate. In fact, when testing random
+effects, the test is conservative<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> because the null hypothesis is at a
+boundary of the parameter space. This means that you will underestimate
+power if you use the LRT. For more accurate results you can use
+<code>compare</code> with a parametric bootstrap test from the
+<code>pbkrtest</code> package. These can be quite slow, so you may want
+to use the LRT to exploring designs, and then double check with the
+parametric bootstrap.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a><span class="fu">doTest</span>(fm1, <span class="fu">compare</span>( <span class="sc">~</span> Days <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject), <span class="st">&quot;pb&quot;</span>))</span></code></pre></div>
+<p>Note that the shortcut <code>rcompare</code> saves you from retyping
+the fixed effect specification.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="fu">doTest</span>(fm1, <span class="fu">rcompare</span>( <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">|</span> Subject), <span class="st">&quot;pb&quot;</span>))</span></code></pre></div>
+</div>
+<div id="a-note-about-errors-during-simulation" class="section level2">
+<h2>A note about errors during simulation</h2>
+<p>During a simulation study, some iterations may fail due to some sort
+of error. When this happens, <code>simr</code> treats that iteration as
+a failed (i.e. not significant) test. In the following example there are
+50 simulations, with 14 successes, 34 failures, and 2 non-results. The
+power is calculated as 14/50, i.e. 28%:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a>binFit <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="at">formula =</span> <span class="fu">cbind</span>(z, <span class="dv">10</span> <span class="sc">-</span> z) <span class="sc">~</span> x <span class="sc">+</span> g, <span class="at">family =</span> binomial, <span class="at">data =</span> simdata)</span>
+<span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" tabindex="-1"></a>poisSim <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="at">formula =</span> z <span class="sc">~</span> x <span class="sc">+</span> g, <span class="at">family =</span> poisson, <span class="at">data =</span> simdata)</span>
+<span id="cb34-4"><a href="#cb34-4" tabindex="-1"></a><span class="fu">coef</span>(poisSim)[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="fl">0.05</span>)</span>
+<span id="cb34-5"><a href="#cb34-5" tabindex="-1"></a></span>
+<span id="cb34-6"><a href="#cb34-6" tabindex="-1"></a><span class="fu">powerSim</span>(binFit, <span class="at">sim=</span>poisSim, <span class="at">nsim=</span><span class="dv">50</span>, <span class="at">seed=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## Power for predictor &#39;x&#39;, (95% confidence interval):
+##       28.00% (16.23, 42.49)
+## 
+## Test: z-test
+## 
+## Based on 50 simulations, (2 errors, 0 warnings, 0 messages)
+## 
+## Time elapsed: 0 h 0 m 0 s</code></pre>
+<p>Rather than interrupting part-way through an analysis,
+<code>simr</code> traps and logs errors and warnings. You can access
+these logs using <code>$warnings</code> and <code>$errors</code>. If you
+didn’t assign your analysis to a variable, you can recover it with the
+<code>lastResult</code> function.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a>ps <span class="ot">&lt;-</span> <span class="fu">lastResult</span>()</span>
+<span id="cb36-2"><a href="#cb36-2" tabindex="-1"></a>ps<span class="sc">$</span>errors</span></code></pre></div>
+<pre><code>##     stage index                           message
+## 1 Fitting    14 Value 1.04545 out of range (0, 1)
+## 2 Fitting    33 Value 1.13636 out of range (0, 1)</code></pre>
+</div>
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>See, e.g., Pinheiro, J.C., Bates D.M. (2000)
+<em>Mixed-Effects Models in S and S-PLUS</em>, Springer, New York
+(p84).<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
