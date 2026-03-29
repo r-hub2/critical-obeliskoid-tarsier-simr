@@ -22,7 +22,7 @@ RoxygenNote: 7.3.3
 VignetteBuilder: knitr
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2026-03-29 06:55:00 UTC; pete
+Packaged: 2026-03-29 07:35:10 UTC; pete
 Author: Peter Green [aut, cre] (ORCID: <https://orcid.org/0000-0002-0238-9852>),
   Catriona MacLeod [aut],
   Phillip Alday [ctb]

@@ -397,14 +397,14 @@ to specify an appropriate effect size.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">fixef</span>(gm2)[<span class="st">&quot;size&quot;</span>] <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
 <span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">powerSim</span>(gm2, <span class="fu">fixed</span>(<span class="st">&quot;size&quot;</span>, <span class="st">&quot;z&quot;</span>), <span class="at">nsim=</span><span class="dv">50</span>)</span></code></pre></div>
 <pre><code>## Power for predictor &#39;size&#39;, (95% confidence interval):
-##       64.00% (49.19, 77.08)
+##       60.00% (45.18, 73.59)
 ## 
 ## Test: z-test
 ##       Effect size for size is 0.050
 ## 
 ## Based on 50 simulations, (0 errors, 0 warnings, 0 messages)
 ## 
-## Time elapsed: 0 h 0 m 4 s</code></pre>
+## Time elapsed: 0 h 0 m 11 s</code></pre>
 </div>
 <div id="models-with-interaction-or-quadratic-terms" class="section level2">
 <h2>Models with interaction or quadratic terms</h2>
@@ -473,7 +473,7 @@ we could also use a Z-test on the single interaction term.</p>
 single random effect.</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a>re1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Yield <span class="sc">~</span> <span class="dv">1</span><span class="sc">|</span>Batch, <span class="at">data=</span>Dyestuff)</span>
 <span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a><span class="fu">doTest</span>(re1, <span class="fu">random</span>())</span></code></pre></div>
-<pre><code>## p-value for a single random effect: 0.0051
+<pre><code>## p-value for a single random effect: 0.0029
 ##           --------------------
 ## Test: Exact restricted LRT (package RLRsim)</code></pre>
 </div>
